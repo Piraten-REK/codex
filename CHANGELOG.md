@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added enum `Gender` to prisma schema
 - Added model `User` to prisma schema
 - Added [admin user creation script](prisma/createAdminUser.mjs)
+- Added NextAuth to project
 
 ### Changed
 
