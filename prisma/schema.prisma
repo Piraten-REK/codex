@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+enum Gender {
+  FEMALE
+  MALE
+  OTHER
+}
+
+model User {
+  id          String  @id @default(uuid())
+  username    String  @db.VarChar(48) @unique
+  displayName String
+  password    String  @db.Char(60)
+  email       String  @db.VarChar(320) @unique
+  bio         String  @db.Text()
+  links       Json    @default("[]")
+  gender      Gender  @default(OTHER)
+  isActive    Boolean @default(true)
+  isAdmin     Boolean @default(false)
+}

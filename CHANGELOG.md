@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - This [Changelog](CHANGELOG.md)
 - Added Prisma to project
+- Added enum `Gender` to prisma schema
+- Added model `User` to prisma schema
 
 ### Changed
 
