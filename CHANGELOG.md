@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added React Bootstrap Icons to dependencies
 - [Custom Link component](components/Link.tsx)
 - [Sidebar component](components/Sidebar.tsx)
+- [Layout component](components/Layout.tsx)
 
 ### Changed
 
