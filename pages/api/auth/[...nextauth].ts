@@ -5,6 +5,8 @@ import bcrypt from 'bcrypt'
 import type { SessionUser } from '../../../next-auth'
 import { PrismaClient } from '@prisma/client'
 
+const prisma = new PrismaClient()
+
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
@@ -16,7 +18,6 @@ export const authOptions: NextAuthOptions = {
       async authorize (credentials): Promise<User | null> {
         if (credentials == null) return null
 
-        const prisma = new PrismaClient()
         const user = await prisma.user.findFirst({
           where: {
             OR: [
@@ -54,7 +55,6 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async session ({ session, token }) {
       if (token.sub != null) {
-        const prisma = new PrismaClient()
         const user = await prisma.user.findUnique({
           where: {
             id: token.sub
