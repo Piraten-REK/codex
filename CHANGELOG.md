@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Sidebar component](components/Sidebar.tsx)
 - [Layout component](components/Layout.tsx)
 - [Declaration file for CSS modules](css-modules.d.ts)
+- [Global stylesheet](styles/globals.css)
 
 ### Changed
 
