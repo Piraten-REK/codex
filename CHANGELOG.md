@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added [custom next Document](pages/_document.tsx)
 - Added Inter font
 - Added React Bootstrap Icons to dependencies
+- Added [Custom Link Component](components/Link.tsx)
 
 ### Changed
 
