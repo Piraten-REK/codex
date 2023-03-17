@@ -1,28 +1,26 @@
 import type { FC } from 'react'
 import type { Icon } from 'react-bootstrap-icons'
-import { Book, House } from 'react-bootstrap-icons'
-import Link from '../components/Link'
-import styles from '../styles/Sidebar.module.css'
+import { House } from 'react-bootstrap-icons'
+import Link from '@/components/Link'
+import styles from '@/styles/Sidebar.module.css'
 
-export const links: Array<{ href: string, Icon: Icon }> = [
+export const links: Array<{ href: string, Icon: Icon, title: string }> = [
   {
     href: '/',
-    Icon: House
+    Icon: House,
+    title: 'Home'
   }
 ]
 
 const Sidebar: FC = () => {
   return (
     <aside className={styles.sidebar}>
-      <Link href='/' className={styles.siteIcon}>
-        <Book />
-      </Link>
       <nav className={styles.nav}>
         <ul>
           {
-            links.map(({ href, Icon }) => (
+            links.map(({ href, Icon, title }) => (
               <li key={href}>
-                <Link href={href}>
+                <Link href={href} title={title}>
                   <Icon />
                 </Link>
               </li>

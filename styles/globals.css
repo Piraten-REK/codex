@@ -20,15 +20,13 @@
   --font-size-paragraph: 10px;
 
   --sidebar-width: 50px;
-  --sidebar-padding-block: 12px 6px;
+  --sidebar-padding-block: 12px;
   --sidebar-padding-inline: 8px;
   --sidebar-bg-clr: var(--clr-gray-800);
   --sidebar-txt-clr: var(--clr-white);
-  --sidebar-site-icon-size: 34px;
   --sidebar-icon-size: 26px;
   --sidebar-icon-active-clr: var(--clr-accent-400);
   --sidebar-icon-active-bg-clr: var(--clr-gray-700);
-  --sidebar-nav-padding-block-start: 41px;
   --sidebar-nav-link-width: 45px;
   --sidebar-nav-link-height: 40px;
   --sidebar-active-bg-radius: 4px;

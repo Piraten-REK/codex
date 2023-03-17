@@ -10,17 +10,6 @@
   color: inherit;
 }
 
-.siteIcon {
-  width: 100%;
-  text-align: center;
-  font-size: var(--sidebar-site-icon-size);
-  height: var(--sidebar-site-icon-size);
-  display: block;
-}
-
-.nav {
-  padding-block-start: 41px;
-}
 .nav ul {
   margin: 0;
   padding: 0;
