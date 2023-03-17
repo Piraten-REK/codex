@@ -2,7 +2,10 @@ import NextAuth from 'next-auth/next' // eslint-disable-line @typescript-eslint/
 import type { User } from '@prisma/client'
 
 interface SessionUser extends Omit<User, 'password'> {
-  links: Array<{ name: string, url: string }>
+  links: Array<{
+    title: string
+    href: string
+  }>
 }
 
 declare module 'next-auth' {

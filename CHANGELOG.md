@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Global stylesheet](styles/globals.css)
 - [CSS module for Sidebar component](styles/Sidebar.module.css)
 - Path variable `@` to [TypeScript configuration](tsconfig.json)
+- [Type declaration](db.d.ts) for user defined links
 
 ### Changed
 
