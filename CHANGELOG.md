@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added NextAuth to project
 - session handling via NextAuth
 - [Custom Next Document](pages/_document.tsx)
-- Inter font
+- Assistant font
 - Added React Bootstrap Icons to dependencies
 - [Custom Link component](components/Link.tsx)
 - [Sidebar component](components/Sidebar.tsx)

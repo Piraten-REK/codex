@@ -1,9 +1,9 @@
 import type { AppProps } from 'next/app'
 import { SessionProvider } from 'next-auth/react'
-import { Inter } from 'next/font/google'
+import { Assistant } from 'next/font/google'
 import '../styles/globals.css'
 
-const inter = Inter({ subsets: ['latin', 'latin-ext'] })
+const assistant = Assistant({ subsets: ['latin', 'latin-ext'] })
 
 const Codex = ({
   Component,
@@ -14,7 +14,8 @@ const Codex = ({
       <style jsx global>
         {`
           :root {
-            font-family: ${inter.style.fontFamily};
+            --font: ${assistant.style.fontFamily};
+            font-family: var(--font);
           }
         `}
       </style>
