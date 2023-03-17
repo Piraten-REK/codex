@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import Layout from '../components/Layout'
+import Layout from '@/components/Layout'
 
 const Home: NextPage = () => {
   const { data: session } = useSession()
@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   console.log(session)
 
   return (
-    <Layout>
+    <Layout title='Home'>
       <div><p>Hello World</p></div>
       {
         session?.user != null
