@@ -1,0 +1,42 @@
+.header {
+  grid-area: header;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  padding-inline: var(--header-padding-inline);
+  background-color: var(--header-bg-clr);
+  border-block-end: 1px solid var(--header-border-clr);
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: var(--header-padding-inline);
+}
+.title svg {
+  width: var(--header-title-icon-size);
+  height: var(--header-title-icon-size);
+}
+.pageTitle {
+  font-size: var(--header-page-title-size);
+  font-weight: var(--header-page-title-weight);
+  color: var(--header-page-title-clr);
+  display: inline-block;
+  padding-inline-start: var(--header-title-inner-padding);
+}
+
+.userSection[data-logged-in="false"] button {
+  display: flex;
+  width: var(--header-avatar-size);
+  height: var(--header-avatar-size);
+  justify-content: center;
+  align-items: center;
+}
+.userSection[data-logged-in="false"] svg {
+  width: var(--header-login-btn-size);
+  height: var(--header-login-btn-size);
+  fill: var(--header-login-btn-clr);
+}
