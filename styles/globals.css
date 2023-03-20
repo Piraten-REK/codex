@@ -12,6 +12,8 @@
   --clr-gray-900: hsl(202 12% 12%);
   --clr-white: hsl(202 12% 100%);
 
+  --bg-clr: var(--clr-gray-50);
+
   --font-weight-medium: 535;
   --font-weight-small: 275;
   --font-size-h1: 22px;
@@ -19,6 +21,8 @@
   --font-size-subtitle: 12px;
   --font-size-label: 8px;
   --font-size-paragraph: 10px;
+
+  --h2-margin-block: 18px 12px;
 
   --header-height: 42px;
   --header-bg-clr: var(--clr-white);
@@ -48,8 +52,49 @@
   --sidebar-active-bg-radius: 4px;
   --sidebar-nav-spacing: 10px;
 
-  --clr-txt: var(--clr-gray-900);
-  color: var(--clr-txt);
+  --txt-clr: var(--clr-gray-900);
+  --main-padding: 14px;
+  --input-height: 26px;
+  --input-bg-clr: var(--clr-white);
+  --input-border-clr: var(--clr-gray-100);
+  --input-focus-border-clr: var(--clr-accent-400);
+  --input-font-size: 12px;
+  --input-placeholder-clr: var(--clr-gray-200);
+  --input-txt-clr: var(--txt-clr);
+  --input-inline-padding: 5px;
+  --input-block-padding: 4px;
+  --input-label-size: 10px;
+  --input-label-clr: var(--clr-gray-700);
+  --input-password-show-clr: var(--clr-gray-400);
+  --input-password-show-focus-clr: var(--clr-accent-400);
+  --input-password-show-size: 14px;
+  --input-label-spacing: 4px;
+  --input-border-radius: 2px;
+  --form-spacing: 14px;
+
+  --card-bg-clr: var(--clr-white);
+  --card-padding: 8px 12px;
+  --card-radius: 4px;
+
+  --btn-primary-clr: var(--clr-accent-400);
+  --btn-primary-active-clr: var(--clr-accent-200);
+  --btn-secondary-clr: lime;
+  --btn-secondary-active-clr: green;
+  --btn-txt-clr: var(--clr-white);
+  --btn-font-size: var(--font-size-paragraph);
+  --btn-big-font-size: 12px;
+  --btn-font-weight: 400;
+  --btn-big-font-weight: var(--font-weight-medium);
+  --btn-width: 80px;
+  --btn-big-width: 115px;
+  --btn-height: 0px;
+  --btn-big-height: 24px;
+  --btn-padding: 0;
+  --btn-big-padding: 4px 8px;
+  --btn-radius: 0px;
+  --btn-big-radius: 4px;
+
+  color: var(--txt-clr);
 }
 
 html, body {
@@ -68,6 +113,7 @@ body {
     'sidebar copyright' var(--font-size-paragraph)
     / var(--sidebar-width) auto;
   ;
+  background-color: var(--bg-clr);
 }
 
 *, *::before, *::after {
@@ -89,6 +135,7 @@ body {
 
 main {
   grid-area: main;
+  padding: var(--main-padding)
 }
 
 /*
@@ -115,6 +162,13 @@ h1 {
   font-size: var(--font-size-h1);
   margin: 0;
 }
+h2 {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-h2);
+  margin-block: var(--h2-margin-block);
+  margin-inline: 0;
+  padding: 0;
+}
 
 :where(button) {
   appearance: none;
@@ -127,4 +181,113 @@ h1 {
   cursor: pointer;
   margin: 0;
   padding: 0;
+}
+
+input {
+  appearance: none;
+  outline: none;
+  caret-color: var(--clr-accent-400);
+}
+:not(input) + label {
+  display: block;
+}
+label {
+  font-size: var(--input-label-size);
+  color: var(--input-label-clr);
+}
+label + label {
+  margin-block-start: var(--form-spacing);
+}
+label input:where([type='text'], [type='password']) {
+  margin-block-start: var(--input-label-spacing);
+}
+input:where([type='text'], [type='password']) {
+  display: block;
+  width: 100%;
+  height: var(--input-height);
+  line-height: var(--input-height);
+  padding-block: var(--input-block-padding);
+  padding-inline: var(--input-inline-padding);
+  font-family: inherit;
+  font-size: var(--input-font-size);
+  background-color: var(--input-bg-clr);
+  border: 1px solid var(--input-border-clr);
+  border-radius: var(--input-border-radius);
+}
+input[data-show-password]:not(:placeholder-shown) {
+  font-family: monospace;
+}
+input:where([type='text'], [type='password']):focus-visible {
+  border-color: var(--input-focus-border-clr);
+  box-shadow: 0 0 0 1px var(--input-focus-border-clr);
+}
+.passwordInputWrapper {
+  position: relative;
+  isolation: isolate;
+}
+.passwordInputWrapper input {
+  padding-inline-end: calc(var(--input-inline-padding) * 2 + var(--input-password-show-size));
+}
+.passwordInputWrapper button {
+  position: absolute;
+  inset: 50% var(--input-inline-padding) auto auto;
+  translate: 0 -50%;
+  width: var(--input-password-show-size);
+  height: var(--input-password-show-size);
+  font-size: var(--input-password-show-size);
+  color: var(--input-password-show-clr);
+}
+.passwordInputWrapper button:where(:focus-visible, :hover) {
+  color: var(--input-password-show-focus-clr);
+}
+
+.card {
+  background-color: var(--card-bg-clr);
+  padding: var(--card-padding);
+  border-radius: var(--card-radius);
+}
+
+.btn {
+  --btn__txt-clr: var(--btn-txt-clr);
+  --btn__padding: var(--btn-padding);
+  --btn__width: var(--btn-width);
+  --btn__height: var(--btn-height);
+  --btn__radius: var(--btn-radius);
+  --btn__font-size: var(--btn-font-size);
+  --btn__font-weight: var(--btn-font-weight);
+
+  display: inline-block;
+  color: var(--btn__txt-clr);
+  padding: var(--btn__padding);
+  min-width: var(--btn__width);
+  height: var(--btn__height);
+  border-radius: var(--btn__radius);
+  font-size: var(--btn__font-size);
+  font-weight: var(--btn__font-weight);
+  background-color: var(--btn__bg-clr, hotpink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.btn:where(:hover, :focus-visible) {
+  outline: 2px solid var(--btn__bg-clr, lime);
+  outline-offset: 2px;
+}
+.btn.primary {
+  --btn__bg-clr: var(--btn-primary-clr);
+}
+.btn.secondary {
+  --btn__bg-clr: var(--btn-secondary-clr);
+}
+.btn.big {
+  --btn__padding: var(--btn-big-padding);
+  --btn__width: var(--btn-big-width);
+  --btn__height: var(--btn-big-height);
+  --btn__radius: var(--btn-big-radius);
+  --btn__font-size: var(--btn-big-font-size);
+  --btn__font-weight: var(--btn-big-font-weight);
+}
+.btn.center {
+  display: block;
+  margin-inline: auto;
 }
