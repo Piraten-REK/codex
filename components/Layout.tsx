@@ -12,7 +12,7 @@ const Layout: FC<PropsWithChildren<LayoutProps>> = ({ title, description, childr
   return (
     <>
       <Head>
-        <title>Codex{title != null ? ` | ${title}` : null}</title>
+        <title>{title != null ? `Codex | ${title}` : 'Codex'}</title>
         {description != null ? <meta name='description' content={description} /> : null}
         <meta property='og:site_name' content='Codex' />
         {title != null ? <meta property='og:title' content={title} /> : null}
