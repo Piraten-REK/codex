@@ -6,9 +6,10 @@ import Header from './Header'
 export interface LayoutProps {
   title?: string
   description?: string
+  className?: string
 }
 
-const Layout: FC<PropsWithChildren<LayoutProps>> = ({ title, description, children }) => {
+const Layout: FC<PropsWithChildren<LayoutProps>> = ({ title, description, className, children }) => {
   return (
     <>
       <Head>
@@ -20,7 +21,7 @@ const Layout: FC<PropsWithChildren<LayoutProps>> = ({ title, description, childr
       </Head>
       <Header title={title} />
       <Sidebar />
-      <main>
+      <main className={className}>
         {children}
       </main>
     </>
