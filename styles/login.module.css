@@ -1,0 +1,25 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.card {
+  padding-block-end: 20px;
+}
+
+.card h2 {
+  margin-block-start: 0;
+}
+
+.forgotPassword {
+  display: block;
+  margin-top: 5px;
+  color: var(--clr-gray-600);
+  font-size: 8px;
+}
+
+.submit {
+  margin-block-start: 24px;
+}

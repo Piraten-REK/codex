@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Type declaration](db.d.ts) for user defined links
 - [Header component](components/Header.tsx)
 - [Custom hooks file](utils/hooks.ts) to utils directory
+- [Custom login page](pages/login.tsx)
 
 ### Changed
 
