@@ -29,12 +29,12 @@ const Login: NextPage<LoginProps> = ({ csrfToken }) => {
           <label>
             Passwort
             <div className='passwordInputWrapper'>
-              <input type={showPassword as boolean ? 'text' : 'password'} name='password' placeholder='Passwort' minLength={8} required autoComplete='current-password' data-show-password={showPassword} />
-              <button type='button' className='passwordInputToggle' onClick={toggleShowPassword}>{showPassword as boolean ? <EyeSlash /> : <Eye />}</button>
+              <input type={showPassword ? 'text' : 'password'} name='password' placeholder='Passwort' minLength={8} required autoComplete='current-password' data-show-password={showPassword} />
+              <button type='button' className='passwordInputToggle' onClick={toggleShowPassword}>{showPassword ? <EyeSlash /> : <Eye />}</button>
             </div>
           </label>
           <button type='button' className={styles.forgotPassword}>Passwort vergessen</button>
-          <button type='submit' className={`btn big primary center ${styles.submit}`}>Los geht's</button>
+          <button type='submit' className={`btn big primary center ${styles.submit}`}>Los geht&apos;s</button>
         </form>
       </section>
     </Layout>
