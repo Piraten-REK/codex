@@ -40,6 +40,17 @@
   --header-login-btn-size: 24px;
   --header-login-btn-clr: var(--clr-gray-400);
 
+  --tablist-font-size: 14px;
+  --tablist-padding-inline: 8px;
+  --tablist-padding-block: 10px;
+  --tablist-active-size: 3px;
+  --tablist-active-color: var(--clr-accent-400);
+  --tablist-border-color: var(--header-border-clr);
+  --tablist-gap: 3px;
+  --tablist-bg-clr: var(--header-bg-clr);
+  --tablist-height: calc(var(--tablist-font-size) + 2 * var(--tablist-padding-block));
+  --tablist-hover-bg-clr: var(--clr-accent-100);
+
   --user-menu-bg-clr: var(--clr-white);
   --user-menu-padding: var(--header-padding-inline-start);
 
@@ -139,6 +150,32 @@ body {
 
 #__next {
   display: contents;
+}
+
+#__next > [role='tablist'] {
+  grid-area: main;
+  height: var(--tablist-height);
+  background-color: var(--tablist-bg-clr);
+  display: flex;
+  gap: var(--tablist-gap);
+  padding-inline: var(--tablist-gap);
+  border-block-end: 1px solid var(--tablist-border-color);
+}
+#__next > [role='tablist'] button {
+  padding: var(--tablist-padding-block) var(--tablist-padding-inline);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+#__next > [role='tablist'] button[aria-selected='true'] {
+  border-block-end: var(--tablist-active-size) solid var(--tablist-active-color);
+}
+#__next > [role='tablist'] button:where(:hover, :focus-visible) {
+  background-color: var(--tablist-hover-bg-clr);
+}
+
+#__next > [role='tablist'] + main {
+  margin-block-start: var(--tablist-height);
 }
 
 main {
