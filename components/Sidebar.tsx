@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import type { Icon } from 'react-bootstrap-icons'
-import { House } from 'react-bootstrap-icons'
+import { GearWide, House } from 'react-bootstrap-icons'
 import Link from '@/components/Link'
 import styles from '@/styles/Sidebar.module.css'
 
@@ -9,6 +9,11 @@ export const links: Array<{ href: string, icon: Icon, title: string }> = [
     href: '/',
     icon: House,
     title: 'Home'
+  },
+  {
+    href: '/preferences',
+    icon: GearWide,
+    title: 'Einstellungen'
   }
 ]
 
