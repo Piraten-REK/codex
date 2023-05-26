@@ -24,22 +24,24 @@
 
   --h2-margin-block: 18px 12px;
 
-  --header-height: 42px;
+  --header-height: 56px;
   --header-bg-clr: var(--clr-white);
   --header-border-clr: var(--clr-gray-200);
   --header-title-icon-size: 28px;
-  --header-padding-inline: 11px 8px;
+  --header-padding-inline-start: 11px;
+  --header-padding-inline-end: 8px;
   --header-icon-padding: 11px;
   --header-title-inner-padding: 5px;
   --header-page-title-size: 22px;
   --header-page-title-weight: var(--font-weight-small);
   --header-page-title-clr: var(--clr-gray-400);
-  --header-avatar-size: 32px;
+  --header-avatar-size: 38px;
   --header-avatar-border-clr: var(--clr-gray-200);
   --header-login-btn-size: 24px;
   --header-login-btn-clr: var(--clr-gray-400);
 
-  --sidebar-width: 50px;
+  --user-menu-bg-clr: var(--clr-white);
+  --user-menu-padding: var(--header-padding-inline-start);
   --sidebar-padding-block: 12px;
   --sidebar-padding-inline: 8px;
   --sidebar-bg-clr: var(--clr-gray-800);

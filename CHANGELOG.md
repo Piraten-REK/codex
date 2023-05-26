@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Custom hooks file](utils/hooks.ts) to utils directory
 - [Custom login page](pages/login.tsx)
 - [Default Avatar](components/DefaultAvatar.tsx) based on bootstrap icon 'person-fill'
+- User Dropdown Menu in [header](components/Header.tsx)
 
 ### Changed
 

@@ -1,7 +1,9 @@
 import { FC } from 'react'
 import styles from '@/styles/Header.module.css'
 import { Book, BoxArrowInRight } from 'react-bootstrap-icons'
-import { useSession, signIn } from 'next-auth/react'
+import { useSession, signIn, signOut } from 'next-auth/react'
+import DefaultAvatar from './DefaultAvatar'
+import Dropdown from './Dropdown'
 
 export interface HeaderProps {
   title?: string
@@ -20,7 +22,22 @@ const Header: FC<HeaderProps> = ({ title }) => {
         {
           session == null
             ? <button role='link' title='Einloggen' onClick={() => { void signIn() }}><BoxArrowInRight /></button>
-            : null
+            : (
+              <Dropdown>
+                <Dropdown.Toggle className={styles.toggle}>
+                  <span className={styles.userDisplayName}>{session.user.displayName}</span>
+                  <span className={styles.userName}>@{session.user.username}</span>
+                  <DefaultAvatar />
+                </Dropdown.Toggle>
+                <Dropdown.Menu as='ul' className={styles.userMenu}>
+                  <li>Einstellungen</li>
+                  <hr />
+                  <li>
+                    <button role='link' onClick={() => { void signOut() }}>Logout</button>
+                  </li>
+                </Dropdown.Menu>
+              </Dropdown>
+              )
         }
       </div>
     </header>
