@@ -1,0 +1,13 @@
+:where(.toggle) {
+  cursor: pointer;
+  user-select: none;
+}
+
+:where(.menu) {
+  visibility: hidden;
+  opacity: 0;
+}
+:where(.menu)[aria-hidden='false'] {
+  visibility: visible;
+  opacity: 1;
+}
