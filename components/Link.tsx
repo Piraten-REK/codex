@@ -15,7 +15,7 @@ const Link: FC<LinkProps> = ({ activeClassName = 'active', className = '', href,
     if (router.asPath === href) classes += (classes.length > 0 ? ' ' : '') + activeClassName
 
     return classes
-  }, [activeClassName, className, router])
+  }, [activeClassName, className, router, href])
 
   return <NextLink className={getClassName()} href={href} {...props} />
 }
