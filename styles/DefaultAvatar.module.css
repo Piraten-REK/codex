@@ -1,0 +1,17 @@
+.wrapper {
+  height: var(--header-avatar-size);
+  aspect-ratio: 1;
+  background: var(--clr-gray-200);
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+.wrapper svg {
+  width: var(--header-avatar-size);
+  height: var(--header-avatar-size);
+  position: absolute;
+  inset: auto auto 0 50%;
+  translate: -50% 12%;
+  fill: var(--clr-gray-700);
+}
