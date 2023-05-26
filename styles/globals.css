@@ -336,3 +336,43 @@ input:where([type='text'], [type='password']):focus-visible {
   display: block;
   margin-inline: auto;
 }
+
+table {
+  width: 100%;
+  border-spacing: 2px;
+}
+table caption {
+  margin-block-end: 8px;
+  text-align: left;
+}
+thead {
+  padding-block-end: 4px;
+}
+thead th {
+  font-weight: 700;
+  text-align: start;
+  color: var(--clr-gray-700);
+  text-transform: uppercase;
+}
+tbody tr:first-child td:first-child {
+  border-start-start-radius: 4px;
+}
+tbody tr:first-child td:last-child {
+  border-start-end-radius: 4px;
+}
+tbody tr:last-child td:first-child {
+  border-end-start-radius: 4px;
+}
+tbody tr:last-child td:last-child {
+  border-end-end-radius: 4px;
+}
+tbody td {
+  padding: 4px 6px;
+  background-color: var(--clr-gray-200);
+}
+tbody tr:nth-child(2n) td {
+  background-color: var(--clr-gray-100);
+}
+tbody tr:where(:hover, :focus-within) {
+  outline: 2px solid var(--clr-accent-400);
+}
