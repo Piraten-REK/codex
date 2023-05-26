@@ -207,6 +207,7 @@
   dependencies:
     tslib "^2.4.0"
 
+  version "0.4.2"
 "@types/bcrypt@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@types/bcrypt/-/bcrypt-5.0.0.tgz#a835afa2882d165aff5690893db314eaa98b9f20"
