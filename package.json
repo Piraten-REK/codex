@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^4.11.0",
+    "@restart/ui": "^1.6.3",
     "bcrypt": "^5.1.0",
     "next": "^13.2.3",
     "next-auth": "^4.20.1",
