@@ -4,10 +4,10 @@ import { House } from 'react-bootstrap-icons'
 import Link from '@/components/Link'
 import styles from '@/styles/Sidebar.module.css'
 
-export const links: Array<{ href: string, Icon: Icon, title: string }> = [
+export const links: Array<{ href: string, icon: Icon, title: string }> = [
   {
     href: '/',
-    Icon: House,
+    icon: House,
     title: 'Home'
   }
 ]
@@ -18,10 +18,11 @@ const Sidebar: FC = () => {
       <nav className={styles.nav}>
         <ul>
           {
-            links.map(({ href, Icon, title }) => (
+            links.map(({ href, icon: Icon, title }, idx) => (
               <li key={href}>
                 <Link href={href} title={title}>
-                  <Icon />
+                  <Icon aria-labelledby={`nav_${idx}`} className={styles.icon} />
+                  <span id={`nav_${idx}`} className={styles.title}>{title}</span>
                 </Link>
               </li>
             ))

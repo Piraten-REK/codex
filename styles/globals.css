@@ -42,17 +42,23 @@
 
   --user-menu-bg-clr: var(--clr-white);
   --user-menu-padding: var(--header-padding-inline-start);
-  --sidebar-padding-block: 12px;
-  --sidebar-padding-inline: 8px;
+
+  --sidebar-width: 64px;
+  --sidebar-padding-block: 16px;
+  --sidebar-padding-inline: 7px;
   --sidebar-bg-clr: var(--clr-gray-800);
   --sidebar-txt-clr: var(--clr-white);
-  --sidebar-icon-size: 26px;
+  --sidebar-icon-size: 28px;
+  --sidebar-icon-padding: 3px;
+  --sidebar-title-size: 11px;
+  --sidebar-icon-spacing: 4px;
   --sidebar-icon-active-clr: var(--clr-accent-400);
   --sidebar-icon-active-bg-clr: var(--clr-gray-700);
+  --sidebar-icon-hover-bg-clr: var(--clr-gray-600);
   --sidebar-nav-link-width: 45px;
   --sidebar-nav-link-height: 40px;
-  --sidebar-active-bg-radius: 4px;
-  --sidebar-nav-spacing: 10px;
+  --sidebar-bg-radius: 4px;
+  --sidebar-nav-spacing: 18px;
 
   --txt-clr: var(--clr-gray-900);
   --main-padding: 14px;
