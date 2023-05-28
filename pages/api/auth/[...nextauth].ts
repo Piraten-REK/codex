@@ -2,7 +2,7 @@ import NextAuth from 'next-auth'
 import type { NextAuthOptions, User } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcrypt'
-import type { SessionUser } from '../../../next-auth'
+import type { UserWithAvatar } from '@/db'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -63,18 +63,20 @@ export const authOptions: NextAuthOptions = {
             id: true,
             username: true,
             displayName: true,
+            gender: true,
             email: true,
             bio: true,
             links: true,
             isActive: true,
-            isAdmin: true
+            isAdmin: true,
+            avatar: true
           }
         })
           .catch(error => console.error(error))
           .finally(() => { void prisma.$disconnect() })
 
         if (user != null) {
-          session.user = user as SessionUser
+          session.user = user as unknown as UserWithAvatar
         }
       }
 
