@@ -1,4 +1,4 @@
-import { User } from '@/db'
+import { SerializableUserWithAvatar } from '@/db'
 import { Gender } from '@prisma/client'
 import { FC } from 'react'
 import { GenderFemale, GenderMale, GenderAmbiguous } from 'react-bootstrap-icons'
@@ -10,8 +10,8 @@ const genderIconMap: Record<Gender, JSX.Element> = {
 }
 
 export interface UsersProps {
-  initialActiveUsers: User[]
-  initialInactiveUsers: User[]
+  initialActiveUsers: SerializableUserWithAvatar[]
+  initialInactiveUsers: SerializableUserWithAvatar[]
   activeUsersCount: number
   inactiveUsersCount: number
 }
