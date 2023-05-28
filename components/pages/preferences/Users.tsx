@@ -1,3 +1,4 @@
+import DefaultAvatar from '@/components/DefaultAvatar'
 import { SerializableUserWithAvatar } from '@/db'
 import { Gender } from '@prisma/client'
 import { FC } from 'react'
@@ -22,6 +23,7 @@ const Users: FC<UsersProps> = ({ initialActiveUsers, initialInactiveUsers, activ
       <caption role='caption'>Aktive Benutzer</caption>
       <thead role='rowgroup'>
         <tr role='row'>
+          <th role='columnheader' />
           <th role='columnheader'>Name</th>
           <th role='columnheader'>Gender</th>
           <th role='columnheader'>Nutzername</th>
@@ -38,6 +40,7 @@ const Users: FC<UsersProps> = ({ initialActiveUsers, initialInactiveUsers, activ
             )
           : initialActiveUsers.map(user => (
             <tr key={user.id} role='row'>
+              <td role='cell' data-column='Avatar'>{user.avatar != null ? <p>AV</p> : <DefaultAvatar />}</td>
               <td role='cell' data-column='Name'>{user.displayName}</td>
               <td role='cell' data-column='Gender'>{genderIconMap[user.gender]}</td>
               <td role='cell' data-column='Nutzername'>@{user.username}</td>

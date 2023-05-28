@@ -5,7 +5,7 @@ import Users, { UsersProps } from '@/components/pages/preferences/Users'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from './api/auth/[...nextauth]'
 import { PrismaClient, Prisma } from '@prisma/client'
-import { User } from '@/db'
+import { SerializableUserWithAvatar, UserWithAvatar } from '@/db'
 
 export interface PreferencesProps {
   usersProps: UsersProps
@@ -38,6 +38,18 @@ const Preferences: NextPage<PreferencesProps> = ({ usersProps }) => {
 export default Preferences
 
 const initialUsersSettings: Prisma.UserFindManyArgs = {
+  select: {
+    id: true,
+    username: true,
+    displayName: true,
+    gender: true,
+    email: true,
+    bio: true,
+    links: true,
+    isActive: true,
+    isAdmin: true,
+    avatar: true
+  },
   orderBy: {
     displayName: 'asc'
   },
@@ -58,18 +70,32 @@ export const getServerSideProps: GetServerSideProps<PreferencesProps> = async (c
 
   const prisma = new PrismaClient()
   const [initialActiveUsers, initialInactiveUsers, activeUsersCount, inactiveUsersCount] = await Promise.all([
-    prisma.user.findMany({
+    (prisma.user.findMany({
       where: {
         isActive: true
       },
       ...initialUsersSettings
-    }) as unknown as User[],
-    prisma.user.findMany({
+    }) as unknown as Promise<UserWithAvatar[]>)
+      .then(users => users.map(user => {
+        if (user.avatar != null) {
+          // @ts-expect-error
+          user.avatar.uploaded = user.avatar.uploaded.toISOString()
+        }
+        return user as SerializableUserWithAvatar
+      })),
+    (prisma.user.findMany({
       where: {
         isActive: false
       },
       ...initialUsersSettings
-    }) as unknown as User[],
+    }) as unknown as Promise<UserWithAvatar[]>)
+      .then(users => users.map(user => {
+        if (user.avatar != null) {
+          // @ts-expect-error
+          user.avatar.uploaded = user.avatar.uploaded.toISOString()
+        }
+        return user as SerializableUserWithAvatar
+      })),
     prisma.user.count({
       where: {
         isActive: true
