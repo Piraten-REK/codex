@@ -18,14 +18,31 @@ enum Gender {
 }
 
 model User {
-  id          String  @id @default(uuid())
-  username    String  @db.VarChar(48) @unique
-  displayName String
-  password    String  @db.Char(60)
-  email       String  @db.VarChar(320) @unique
-  bio         String  @db.Text()
-  links       Json    @default("[]")
-  gender      Gender  @default(OTHER)
-  isActive    Boolean @default(true)
-  isAdmin     Boolean @default(false)
+  id            String    @id @default(uuid())
+  username      String    @db.VarChar(48) @unique
+  displayName   String
+  password      String    @db.Char(60)
+  email         String    @db.VarChar(320) @unique
+  bio           String    @db.Text()
+  links         Json      @default("[]")
+  gender        Gender    @default(OTHER)
+  isActive      Boolean   @default(true)
+  isAdmin       Boolean   @default(false)
+  avatar        File?     @relation("avatarOf", fields: [avatarId], references: [id])
+
+  avatarId      String?   @unique
+
+  uploadedFiles File[]    @relation("uploadedFiles")
+}
+
+model File {
+  id          String      @id @default(uuid())
+  filename    String      @db.VarChar(255)
+  mimetype    String
+  uploader    User        @relation("uploadedFiles", fields: [uploaderId], references: [id])
+  uploaded    DateTime    @db.Date() @default(now())
+
+  uploaderId  String
+
+  avatarOf    User?       @relation("avatarOf")
 }
