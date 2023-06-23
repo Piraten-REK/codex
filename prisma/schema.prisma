@@ -41,6 +41,7 @@ model File {
   mimetype    String
   uploader    User        @relation("uploadedFiles", fields: [uploaderId], references: [id])
   uploaded    DateTime    @db.Date() @default(now())
+  data        Bytes
 
   uploaderId  String
 
