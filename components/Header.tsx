@@ -27,7 +27,9 @@ const Header: FC<HeaderProps> = ({ title }) => {
                 <Dropdown.Toggle className={styles.toggle}>
                   <span className={styles.userDisplayName}>{session.user.displayName}</span>
                   <span className={styles.userName}>@{session.user.username}</span>
-                  <DefaultAvatar />
+                  {session.user.avatar == null
+                    ? <DefaultAvatar />
+                    : <img src={`/api/users/${session.user.username}/avatar`} alt={session.user.displayName} />}
                 </Dropdown.Toggle>
                 <Dropdown.Menu as='ul' className={styles.userMenu}>
                   <li>Einstellungen</li>

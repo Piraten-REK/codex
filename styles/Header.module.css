@@ -83,6 +83,10 @@
 .toggle :where([role='img'], img) {
   grid-area: 1 / 2 / 3 / 3;
   width: var(--header-avatar-size);
+  border-radius: 50%;
+}
+.toggle img {
+  outline: 1px solid var(--clr-gray-100);
 }
 
 .userMenu {
