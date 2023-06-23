@@ -48,7 +48,15 @@ const initialUsersSettings: Prisma.UserFindManyArgs = {
     links: true,
     isActive: true,
     isAdmin: true,
-    avatar: true
+    avatar: {
+      select: {
+        id: true,
+        filename: true,
+        mimetype: true,
+        uploaded: true,
+        uploader: true
+      }
+    }
   },
   orderBy: {
     displayName: 'asc'

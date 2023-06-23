@@ -14,7 +14,15 @@ export type UserWithAvatar = Replace<Prisma.UserGetPayload<{
     links: true
     isActive: true
     isAdmin: true
-    avatar: true
+    avatar: {
+      select: {
+        id: true
+        filename: true
+        mimetype: true
+        uploader: true
+        uploaded: true
+      }
+    }
   }
 }>, 'links', UserLink[]>
 

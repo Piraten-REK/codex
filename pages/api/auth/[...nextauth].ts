@@ -69,7 +69,15 @@ export const authOptions: NextAuthOptions = {
             links: true,
             isActive: true,
             isAdmin: true,
-            avatar: true
+            avatar: {
+              select: {
+                id: true,
+                filename: true,
+                mimetype: true,
+                uploader: true,
+                uploaded: true
+              }
+            }
           }
         })
           .catch(error => console.error(error))
